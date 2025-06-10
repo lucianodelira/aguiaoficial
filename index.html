@@ -7,16 +7,93 @@
   <meta name="description" content="Baixe nosso aplicativo para acompanhar as melhores dicas de jogos, apostas e cassino. Acesse agora e aumente suas chances de ganhar!">
   <title>Aguia Oficial</title>
   <link rel="icon" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhIzHb6YULP9ZDfovS2ACQdcoT4QzjitKjJMdcDJTBWHNlQteuV8LZgv5LcVKi98qZSByWX7MtMFOjFQ8Q7eA1EagZ9SfC6SF7gtuG9biQVeYF1GRDJguqg1_lHFm-MuMlNfN69pUZvRJ8rit6jmh9mVRjqlOzs-GPT_CviHDZCeWrFZGx2VKTLyH8y7ds/s320/aguiaoficial.png" type="image/png">
-  <style>
-  html, body {
+ <style>
+ html, body {
   margin: 0;
   padding: 0;
   height: 100%;
-  background-color: #000828; /* Azul escuro profundo */
   overflow: hidden;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: white;
+  background: linear-gradient(-45deg, #FF00FF, #39FF14, #00FFFF, #FFFF00);
+  background-size: 400% 400%;
+  animation: ledBackground 10s ease infinite;
 }
+
+@keyframes ledBackground {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Estilo base dos botões circulares */
+.floating-btn, #hamburger-menu, #palpites-menu, #indique-menu {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  transition: transform 0.3s ease;
+  z-index: 10000;
+  background: #000022; /* fundo escuro base */
+  animation: ledGlow 3s linear infinite;
+}
+/* Animação do efeito LED colorido */
+@keyframes ledGlow {
+  0% {
+    box-shadow:
+      0 0 6px #0ff,
+      0 0 10px #0ff,
+      0 0 20px #08f,
+      0 0 30px #60f;
+  }
+  50% {
+    box-shadow:
+      0 0 10px #f0f,
+      0 0 20px #f0f,
+      0 0 30px #a0f,
+      0 0 40px #d0f;
+  }
+  100% {
+    box-shadow:
+      0 0 6px #0ff,
+      0 0 10px #0ff,
+      0 0 20px #08f,
+      0 0 30px #60f;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 .whatsapp-button {
       position: fixed;
