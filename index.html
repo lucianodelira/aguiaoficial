@@ -8,84 +8,61 @@
   <title>Aguia Oficial</title>
   <link rel="icon" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhIzHb6YULP9ZDfovS2ACQdcoT4QzjitKjJMdcDJTBWHNlQteuV8LZgv5LcVKi98qZSByWX7MtMFOjFQ8Q7eA1EagZ9SfC6SF7gtuG9biQVeYF1GRDJguqg1_lHFm-MuMlNfN69pUZvRJ8rit6jmh9mVRjqlOzs-GPT_CviHDZCeWrFZGx2VKTLyH8y7ds/s320/aguiaoficial.png" type="image/png">
   <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      background-color: #4ada38;
-      overflow: hidden;
-      font-family: Arial, sans-serif;
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: #0f0f0f;
+    overflow: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+  }
+
+  .iframe-container {
+    position: relative;
+    width: 100%;
+    height: calc(100% - 80px);
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  .iframe-wrapper {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.3),
+                0 0 50px rgba(255, 0, 255, 0.2),
+                0 0 100px rgba(0, 255, 0, 0.1);
+    border: 3px solid transparent;
+    background-image: linear-gradient(#0f0f0f, #0f0f0f), 
+                      linear-gradient(45deg, #00f0ff, #ff00f0, #00ff88, #00f0ff);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    animation: borderGlow 4s linear infinite;
+  }
+
+  iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  @keyframes borderGlow {
+    0% {
+      background-image: linear-gradient(#0f0f0f, #0f0f0f),
+                        linear-gradient(45deg, #00f0ff, #ff00f0, #00ff88, #00f0ff);
     }
-    iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: calc(100% - 80px);
-      border: none;
+    50% {
+      background-image: linear-gradient(#0f0f0f, #0f0f0f),
+                        linear-gradient(45deg, #ff00f0, #00ff88, #00f0ff, #ff00f0);
     }
-    .whatsapp-button {
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
-      background-color: #25D366;
-      border-radius: 50%;
-      width: 60px;
-      height: 60px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-      cursor: pointer;
-      animation: pulse 1.5s infinite;
-      z-index: 1000;
+    100% {
+      background-image: linear-gradient(#0f0f0f, #0f0f0f),
+                        linear-gradient(45deg, #00f0ff, #ff00f0, #00ff88, #00f0ff);
     }
-    .whatsapp-button img {
-      width: 30px;
-      height: 30px;
-    }
-    @keyframes pulse {
-      0% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.1); opacity: 0.8; }
-      100% { transform: scale(1); opacity: 1; }
-    }
-    .floating-btn {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 60px;
-      height: 60px;
-      background-color: #0000CD;
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      cursor: pointer;
-      transition: transform 0.3s ease;
-      z-index: 10000;
-    }
-    .floating-menu {
-      position: fixed;
-      bottom: 80px;
-      right: 20px;
-      display: none;
-      flex-direction: column;
-      gap: 10px;
-      z-index: 9999;
-    }
-    .floating-menu a {
-      background: #FF5722;
-      color: #fff;
-      padding: 8px 15px;
-      border-radius: 5px;
-      font-size: 13px;
-      font-weight: bold;
-      text-align: center;
-      text-decoration: none;
-      min-width: 110px;
-    }
-  </style>
+  }
+</style>
 </head>
 <body>
 
