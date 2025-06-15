@@ -422,49 +422,58 @@
   indiqueButton.addEventListener('mouseenter', () => indiqueButton.style.transform = 'scale(1.1)');
   indiqueButton.addEventListener('mouseleave', () => indiqueButton.style.transform = 'scale(1)');
 
-
-
-
-<!-- Botão Bomba 💣 centralizado na parte inferior -->
-<style>
-  #botao-bomba {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 9999;
-    background-color: #ff4d4d;
-    color: white;
-    border: none;
-    border-radius: 50%;
-    font-size: 22px;
-    width: 60px;
-    height: 60px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-    cursor: pointer;
-    transition: transform 0.2s, background-color 0.3s;
-  }
-
-  #botao-bomba:hover {
-    background-color: #e60000;
-    transform: translateX(-50%) scale(1.1);
-  }
-</style>
-
-<button id="botao-bomba" title="Clique e vá para o site 💣">💣</button>
-
-<script>
-  document.getElementById("botao-bomba").addEventListener("click", function() {
-    window.location.href = "https://www.jogodamina.site";
-  });
+  
 </script>
+<!-- Botão Bomba Gadget ao lado do WhatsApp -->
+
+
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Botão Bomba</title>
+  <style>
+    #botao-bomba {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 9999;
+      background-color: #ff4d4d;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      font-size: 22px;
+      width: 60px;
+      height: 60px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      cursor: pointer;
+      transition: transform 0.2s, background-color 0.3s;
+    }
+
+    #botao-bomba:hover {
+      background-color: #e60000;
+      transform: translateX(-50%) scale(1.1);
+    }
+  </style>
+</head>
+<body>
+  <button id="botao-bomba" title="Clique e vá para o site 💣">💣</button>
+
+  <script>
+    document.getElementById("botao-bomba").addEventListener("click", function() {
+      window.location.href = "https://www.jogodamina.site";
+    });
+  </script>
+</body>
+</html>
+
 
 
 
 
   
-</script>
-<!-- Botão Bomba Gadget ao lado do WhatsApp -->
-
 </body>
 </html>
