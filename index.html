@@ -425,13 +425,13 @@
 
 
 
-
-<!-- Botão Bomba 💣 -->
+<!-- Botão Bomba 💣 centralizado na parte inferior -->
 <style>
   #botao-bomba {
     position: fixed;
     bottom: 20px;
-    right: 160px; /* Ajuste aqui se quiser mais próximo ou mais longe do botão do WhatsApp */
+    left: 50%;
+    transform: translateX(-50%);
     z-index: 9999;
     background-color: #ff4d4d;
     color: white;
@@ -447,7 +447,7 @@
 
   #botao-bomba:hover {
     background-color: #e60000;
-    transform: scale(1.1);
+    transform: translateX(-50%) scale(1.1);
   }
 </style>
 
