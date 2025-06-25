@@ -438,48 +438,102 @@
 
 
 
+<!-- Botões Flutuantes: Bomba, Bola e Blaze -->
+<style>
+  .botao-flutuante {
+    position: fixed;
+    bottom: 19px;
+    z-index: 9999;
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 22px;
+    width: 60px;
+    height: 60px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
 
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <title>Botão Bomba</title>
-  <style>
-    #botao-bomba {
-      position: fixed;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 9999;
-      background-color: #ff4d4d;
-      color: white;
-      border: none;
-      border-radius: 50%;
-      font-size: 22px;
-      width: 50px;
-      height: 50px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-      cursor: pointer;
-      transition: transform 0.2s, background-color 0.3s;
+  .botao-flutuante:hover {
+    transform: scale(1.1);
+  }
+
+  #botao-bomba {
+    right: 90px;
+    background-color: #ff4d4d;
+  }
+
+  #botao-bola {
+    right: 160px;
+    background-color: #007bff;
+  }
+
+  #botao-blaze {
+    right: 230px;
+    background-color: #000;
+    border: 2px solid #ff0000;
+    animation: pulse 1.5s infinite;
+  }
+
+  #botao-blaze img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  #botao-blaze:hover {
+    box-shadow: 0 0 12px #ff0000;
+    background-color: #111;
+  }
+
+  /* Animação de destaque (pulso) */
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.6);
     }
-
-    #botao-bomba:hover {
-      background-color: #e60000;
-      transform: translateX(-50%) scale(1.1);
+    70% {
+      box-shadow: 0 0 0 10px rgba(255, 0, 0, 0);
     }
-  </style>
-</head>
-<body>
-  <button id="botao-bomba" title="Clique e vá para o site 💣">💣</button>
+    100% {
+      box-shadow: 0 0 0 0 rgba(255, 0, 0, 0);
+    }
+  }
+</style>
 
-  <script>
-    document.getElementById("botao-bomba").addEventListener("click", function() {
-      window.location.href = "https://www.jogodamina.site";
-    });
-  </script>
-</body>
-</html>
+<!-- Botão Bomba 💣 -->
+<button id="botao-bomba" class="botao-flutuante" title="Jogo da Mina 💣">
+  💣
+</button>
 
+<!-- Botão Bola ⚽ -->
+<button id="botao-bola" class="botao-flutuante" title="Brasileirão ⚽">
+  ⚽
+</button>
+
+<!-- Botão Blaze 🔥 -->
+<button id="botao-blaze" class="botao-flutuante" title="Ir para Blaze 🔥">
+  <img src="https://blaze.partners/_next/image?url=%2Fimages%2Flogo.png&amp;w=1080&amp;q=75" alt="Blaze" />
+</button>
+
+<script>
+  document.getElementById("botao-bomba").addEventListener("click", function() {
+    window.location.href = "https://www.jogodamina.site";
+  });
+
+  document.getElementById("botao-bola").addEventListener("click", function() {
+    window.location.href = "https://www.brasileirao.site";
+  });
+
+  document.getElementById("botao-blaze").addEventListener("click", function() {
+    window.location.href = "https://blaze.cxclick.com/visit/?bta=50593&brand=blaze";
+  });
+</script>
 
 
 
