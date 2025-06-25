@@ -356,6 +356,77 @@
 </script>
 
 
+<div id="installPrompt" style="
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #000;
+  color: #fff;
+  padding: 14px 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  z-index: 9999;
+  font-family: sans-serif;
+  text-align: center;
+">
+  Deseja instalar o app Águia Oficial?
+  <button id="btnInstall" style="
+    margin-left: 12px;
+    background: #1db954;
+    border: none;
+    color: white;
+    padding: 8px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+  ">Instalar</button>
+</div>
+
+
+<script>
+  let deferredPrompt;
+
+  window.addEventListener("beforeinstallprompt", (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    const promptEl = document.getElementById("installPrompt");
+    promptEl.style.display = "block";
+
+    document.getElementById("btnInstall").addEventListener("click", () => {
+      promptEl.style.display = "none";
+      deferredPrompt.prompt();
+
+      deferredPrompt.userChoice.then((choiceResult) => {
+        if (choiceResult.outcome === "accepted") {
+          console.log("Usuário aceitou instalar o app");
+        } else {
+          console.log("Usuário recusou a instalação");
+        }
+        deferredPrompt = null;
+      });
+    });
+  });
+
+  // Oculta o aviso se o app já estiver instalado
+  window.addEventListener("appinstalled", () => {
+    console.log("App instalado");
+    document.getElementById("installPrompt").style.display = "none";
+  });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
 
 
 <script>
