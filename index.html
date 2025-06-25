@@ -192,9 +192,6 @@
 <!-- Botões Flutuantes: Bomba, Bola, Blaze e Outros -->
 <style>
   .botao-flutuante {
-    position: fixed;
-    bottom: 19px;
-    z-index: 9999;
     background-color: #ff4d4d;
     color: white;
     border: none;
@@ -210,6 +207,7 @@
     justify-content: center;
     overflow: hidden;
     padding: 0;
+    flex-shrink: 0;
   }
 
   .botao-flutuante img {
@@ -222,30 +220,20 @@
     transform: scale(1.1);
   }
 
-  #botao-bomba { right: 90px; background-color: #ff4d4d; }
-  #botao-bola { right: 140px; background-color: #007bff; }
-
   #botao-blaze {
-  right: 190px;
-  background-color: #000;
-  border: 2px solid #ff0000;
-  animation: pulse 1.5s infinite;
-  padding: 6px; /* nova borda interna para encaixar imagem */
-}
+    background-color: #000;
+    border: 2px solid #ff0000;
+    animation: pulse 1.5s infinite;
+    padding: 6px;
+  }
 
-#botao-blaze img {
-  width: 120%;
-  height: 120%;
-  object-fit: contain;
-}
-
-  #botao-palpites { right: 240px; background-color: #FF5722; }
-  #botao-tigerclub { right: 290px; background-color: #424242; }
-  #botao-feiticeira { right: 340px; background-color: #800080; }
-  #botao-acertos { right: 390px; background-color: #FF5722; }
+  #botao-blaze img {
+    width: 120%;
+    height: 120%;
+    object-fit: contain;
+  }
 
   #botao-brasil {
-    right: 440px;
     background-color: #009c3b;
     border: 2px solid #fedf00;
   }
@@ -255,62 +243,78 @@
     70% { box-shadow: 0 0 0 10px rgba(255, 0, 0, 0); }
     100% { box-shadow: 0 0 0 0 rgba(255, 0, 0, 0); }
   }
+
+  .botoes-container {
+    position: fixed;
+    bottom: 10px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: center;
+    gap: 8px;
+    padding: 8px 10px;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 9999;
+  }
+
+  .botoes-container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .botoes-container {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  @media (max-width: 500px) {
+    .botao-flutuante {
+      width: 40px;
+      height: 40px;
+    }
+
+    .botao-flutuante img {
+      width: 80%;
+      height: 80%;
+    }
+  }
 </style>
 
-<!-- Botões -->
-<button id="botao-bomba" class="botao-flutuante" title="Jogo da Mina 💣">💣</button>
-<button id="botao-bola" class="botao-flutuante" title="Brasileirão ⚽">⚽</button>
+<div class="botoes-container">
+  
 
-<!-- Botão Blaze 🔥 -->
-<button id="botao-blaze" class="botao-flutuante" title="Ir para Blaze 🔥">
-  <img src="https://blaze.partners/_next/image?url=%2Fimages%2Flogo.png&w=1080&q=75" alt="Blaze" />
-</button>
+  <button id="botao-blaze" class="botao-flutuante" title="Ir para Blaze 🔥">
+    <img src="https://blaze.partners/_next/image?url=%2Fimages%2Flogo.png&w=1080&q=75" alt="Blaze" />
+  </button>
 
-<button id="botao-palpites" class="botao-flutuante" title="Palpites">
-  <img src="https://st4.depositphotos.com/1432405/20213/v/450/depositphotos_202134304-stock-illustration-gallic-rooster-icon-white.jpg" alt="palpites" />
-</button>
+  <button id="botao-palpites" class="botao-flutuante" title="Palpites">
+    <img src="https://st4.depositphotos.com/1432405/20213/v/450/depositphotos_202134304-stock-illustration-gallic-rooster-icon-white.jpg" alt="palpites" />
+  </button>
 
-<button id="botao-tigerclub" class="botao-flutuante" title="Tiger Club">
-  <img src="https://assets.trivo.bet/images/tigerclub.png" alt="tigerclub" />
-</button>
+  <button id="botao-tigerclub" class="botao-flutuante" title="Tiger Club">
+    <img src="https://assets.trivo.bet/images/tigerclub.png" alt="tigerclub" />
+  </button>
 
-<button id="botao-feiticeira" class="botao-flutuante" title="Feiticeira VIP">
-  <img src="https://www.feiticeiravip.com.br/icons/minas.png" alt="feiticeira" />
-</button>
+  <button id="botao-feiticeira" class="botao-flutuante" title="Feiticeira VIP">
+    <img src="https://www.feiticeiravip.com.br/icons/minas.png" alt="feiticeira" />
+  </button>
 
-<button id="botao-acertos" class="botao-flutuante" title="Acertos Club">
-  <img src="https://raw.githubusercontent.com/lucianodelira/ACERTOSCLUB.COM.BR/refs/heads/main/icons/mina.png" alt="acertos" />
-</button>
+  <button id="botao-acertos" class="botao-flutuante" title="Acertos Club">
+    <img src="https://raw.githubusercontent.com/lucianodelira/ACERTOSCLUB.COM.BR/refs/heads/main/icons/mina.png" alt="acertos" />
+  </button>
 
-<button id="botao-brasil" class="botao-flutuante" title="Banca Brasileira">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Flag_of_Brazil.svg/330px-Flag_of_Brazil.svg.png" alt="Brasil" />
-</button>
+  <button id="botao-brasil" class="botao-flutuante" title="Banca Brasileira">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Flag_of_Brazil.svg/330px-Flag_of_Brazil.svg.png" alt="Brasil" />
+  </button>
 
+  <button id="botao-whatsapp" class="botao-flutuante" title="Fale no WhatsApp">
+    <img alt="WhatsApp" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
+  </button>
+</div>
 
-
-
-<button id="botao-whatsapp" class="botao-flutuante" title="Fale no WhatsApp">
-  <img alt="WhatsApp" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
-</button>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- Ações -->
 <script>
-  document.getElementById("botao-bomba").addEventListener("click", function () {
-    window.location.href = "https://www.jogodamina.site";
-  });
+ 
 
   document.getElementById("botao-bola").addEventListener("click", function () {
     window.location.href = "https://www.brasileirao.site";
@@ -340,18 +344,11 @@
     window.open("https://app.bancabrasileira.com.br/pr/EYZ6dslW", "_blank");
   });
 
-
   document.getElementById("botao-whatsapp").addEventListener("click", function () {
     window.open("https://wa.me/+5583993209139?text=Ol%C3%A1,%20gostaria%20de%20jogar!como%20fa%C3%A7o?", "_blank");
   });
-
-
-
-
-
-
-
 </script>
+
 
 
 
