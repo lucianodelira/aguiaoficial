@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "aguia.oficial",
+      "sha256_cert_fingerprints": [
+        "22:2A:6B:CD:49:C7:BB:7D:50:C2:82:EA:1A:64:F1:B9:96:0B:94:7F:55:86:13:96:03:00:B2:A1:64:55:9C:6B"
+      ]
+    }
+  }
+]
