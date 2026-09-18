@@ -1,317 +1,153 @@
 <!DOCTYPE html>
-
 <html lang="pt-BR">
 <head>
-
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5066020163837493"
-     crossorigin="anonymous"></script>
-
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <title>Águia Oficial | Baixar App Oficial</title>
-
 <meta name="description" content="Águia Oficial Bet – Baixe agora o aplicativo oficial da Águia Oficial na Play Store.">
 <meta name="robots" content="index, follow">
-
 <link rel="canonical" href="https://www.bancaaguiaoficial.net/">
-
-<!-- FAVICON -->
-
 <link rel="icon" type="image/png" sizes="192x192"
 href="https://raw.githubusercontent.com/lucianodelira/aguiaoficial/refs/heads/main/icons/icon-192.png">
-
 <link rel="apple-touch-icon"
 href="https://raw.githubusercontent.com/lucianodelira/aguiaoficial/refs/heads/main/icons/icon-192.png">
-
 <meta name="theme-color" content="#0d0d0d">
-
-<!-- Open Graph -->
-
 <meta property="og:title" content="Águia Oficial – Aplicativo Oficial">
 <meta property="og:description" content="Baixe o app oficial da Águia Oficial na Play Store.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.bancaaguiaoficial.net/">
 <meta property="og:image" content="https://raw.githubusercontent.com/lucianodelira/aguiaoficial/refs/heads/main/icons/icon-192.png">
-
-<!-- Schema.org -->
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "MobileApplication",
-  "name": "Águia Oficial",
-  "operatingSystem": "Android",
-  "applicationCategory": "SportsApplication",
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "BRL"
-  }
-}
-</script>
-
-<!-- Google Analytics -->
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-
-<script>
-window.dataLayer = window.dataLayer || [];
-
-function gtag(){
-  dataLayer.push(arguments);
-}
-
-gtag('js', new Date());
-gtag('config', 'G-XXXXXXXXXX');
-</script>
-
 <style>
-
-* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  background: #0d0d0d;
-  font-family: Arial, sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  padding: 20px;
-}
-
-.app {
-  width: 350px;
-  max-width: 100%;
-  background: #1a1a1a;
-  border-radius: 25px;
-  padding: 30px;
-  text-align: center;
-  box-shadow: 0 0 30px rgba(0,0,0,0.6);
-}
-
-.logo {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  margin: 0 auto 20px;
-
-  background-image: url('https://raw.githubusercontent.com/lucianodelira/aguiaoficial/refs/heads/main/icons/icon-192.png');
-
-  background-size: cover;
-  background-position: center;
-}
-
-h1 {
-  color: #fff;
-  font-size: 22px;
-  margin-bottom: 10px;
-}
-
-p {
-  color: #aaa;
-  font-size: 14px;
-}
-
-/* BOTÃO PLAY STORE */
-
-.btn {
-  display: block;
-  margin-top: 25px;
-  padding: 15px;
-
-  background: linear-gradient(45deg,#00c853,#1db954);
-
-  color: #fff;
-  border-radius: 12px;
-
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 16px;
-
-  transition: 0.3s;
-}
-
-.btn:hover {
-  transform: scale(1.05);
-}
-
-/* ============================= */
-/* BOTÃO WHATSAPP */
-/* ============================= */
-
-.whatsapp-btn {
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-
-  margin-top: 18px;
-
-  padding: 15px 12px;
-
-  background: linear-gradient(45deg, #00e676, #00c853);
-
-  color: #fff;
-
-  border-radius: 14px;
-
-  text-decoration: none;
-
-  font-weight: bold;
-
-  font-size: 15px;
-
-  line-height: 1.2;
-
-  box-shadow:
-    0 0 10px rgba(0,230,118,0.45),
-    0 0 25px rgba(0,230,118,0.25);
-
-  animation: whatsappPulse 1.8s infinite;
-
-  transition: 0.3s;
-}
-
-.whatsapp-btn:hover {
-
-  transform: scale(1.06);
-
-  box-shadow:
-    0 0 15px rgba(0,230,118,0.7),
-    0 0 35px rgba(0,230,118,0.4);
-}
-
-/* ÍCONE */
-
-.whatsapp-icon {
-
-  width: 34px;
-  height: 34px;
-
-  background: #fff;
-
-  border-radius: 50%;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  flex-shrink: 0;
-
-  font-size: 21px;
-}
-
-/* ANIMAÇÃO */
-
-@keyframes whatsappPulse {
-
-  0% {
-    transform: scale(1);
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
   }
 
-  50% {
-    transform: scale(1.03);
+  html, body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background: #0d0d0d;
+    font-family: Arial, sans-serif;
   }
 
-  100% {
-    transform: scale(1);
+  /* Iframe ocupa quase toda a tela */
+  .iframe-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 70px); /* deixa espaço para a faixa de baixo */
+    z-index: 1;
   }
 
-}
+  .iframe-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+  }
 
-/* TEXTO */
+  /* Faixa inferior fixa */
+  .bottom-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background: #111;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 8px 10px;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.6);
+    z-index: 10;
+    border-top: 1px solid #222;
+  }
 
-.whatsapp-text {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+  .btn {
+    flex: 1;
+    max-width: 120px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 13px;
+    border-radius: 12px;
+    transition: transform 0.2s, opacity 0.2s;
+    line-height: 1.2;
+    padding: 6px 4px;
+  }
 
-.whatsapp-title {
-  font-size: 15px;
-  font-weight: 900;
-}
+  .btn:active {
+    transform: scale(0.96);
+    opacity: 0.9;
+  }
 
-.whatsapp-subtitle {
-  font-size: 11px;
-  margin-top: 3px;
-  opacity: 0.95;
-}
+  /* Botão Download */
+  .btn-download {
+    background: linear-gradient(45deg, #00c853, #1db954);
+  }
 
+  /* Botão Grupo de Palpites */
+  .btn-palpites {
+    background: linear-gradient(45deg, #00e676, #00c853);
+  }
+
+  /* Botão Outras Bancas */
+  .btn-outras {
+    background: linear-gradient(45deg, #2196f3, #1976d2);
+  }
+
+  /* Ajuste para telas muito pequenas */
+  @media (max-width: 360px) {
+    .btn {
+      font-size: 12px;
+      max-width: 105px;
+    }
+  }
 </style>
-
 </head>
-
 <body>
 
-<div class="app">
-
-  <div class="logo"></div>
-
-  <h1>Águia Oficial</h1>
-
-  <p>Aplicativo oficial disponível na Play Store</p>
-
-  <!-- BOTÃO PLAY STORE -->
-
-<a
-href="https://play.google.com/store/apps/details?id=aguia.oficial"
-class="btn"
-onclick="gtag('event','click_download',{
-event_category:'botao',
-event_label:'playstore'
-});"
-
->
-
-```
-📲 Baixar Agora
-```
-
-  </a>
-
-  <!-- BOTÃO WHATSAPP -->
-
-<a
-href="https://chat.whatsapp.com/JUBqJvYhSThJ3JMWqn3xII"
-class="whatsapp-btn"
-target="_blank"
-rel="noopener noreferrer"
-onclick="gtag('event','click_whatsapp',{
-event_category:'botao',
-event_label:'grupo_palpites'
-});"
-
->
-
-```
-<div class="whatsapp-icon">
-  💬
-</div>
-
-<div class="whatsapp-text">
-
-  <div class="whatsapp-title">
-    PARTICIPE DO GRUPO DE PALPITES
+  <!-- Iframe full screen (sem sandbox) -->
+  <div class="iframe-container">
+    <iframe 
+      src="https://app.aguiaoficial.com/pr/stBCno8r"
+      allowfullscreen
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
   </div>
 
-  <div class="whatsapp-subtitle">
-    🔥 Entre agora no grupo do WhatsApp
+  <!-- Faixa inferior com 3 botões -->
+  <div class="bottom-bar">
+    <a href="https://play.google.com/store/apps/details?id=aguia.oficial" 
+       class="btn btn-download" 
+       target="_blank" 
+       rel="noopener noreferrer">
+      📲 Download
+    </a>
+
+    <a href="https://danny.bancabrasileira.net" 
+       class="btn btn-palpites" 
+       target="_blank" 
+       rel="noopener noreferrer">
+      💬 Grupo de<br>Palpites
+    </a>
+
+    <a href="https://www.zepitaco.com" 
+       class="btn btn-outras" 
+       target="_blank" 
+       rel="noopener noreferrer">
+      🏦 Outras<br>Bancas
+    </a>
   </div>
-
-</div>
-```
-
-  </a>
-
-</div>
-
-<!-- SCRIPT ZONA -->
 
 </body>
 </html>
