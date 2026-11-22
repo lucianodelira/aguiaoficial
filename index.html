@@ -1,153 +1,515 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
 <title>Águia Oficial | Baixar App Oficial</title>
+
 <meta name="description" content="Águia Oficial Bet – Baixe agora o aplicativo oficial da Águia Oficial na Play Store.">
 <meta name="robots" content="index, follow">
+
 <link rel="canonical" href="https://www.bancaaguiaoficial.net/">
+
 <link rel="icon" type="image/png" sizes="192x192"
 href="https://raw.githubusercontent.com/lucianodelira/aguiaoficial/refs/heads/main/icons/icon-192.png">
+
 <link rel="apple-touch-icon"
 href="https://raw.githubusercontent.com/lucianodelira/aguiaoficial/refs/heads/main/icons/icon-192.png">
+
 <meta name="theme-color" content="#0d0d0d">
+
 <meta property="og:title" content="Águia Oficial – Aplicativo Oficial">
 <meta property="og:description" content="Baixe o app oficial da Águia Oficial na Play Store.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.bancaaguiaoficial.net/">
 <meta property="og:image" content="https://raw.githubusercontent.com/lucianodelira/aguiaoficial/refs/heads/main/icons/icon-192.png">
+
 <style>
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
+:root {
+  --footer-height: 32px;
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
 
-  html, body {
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
-    background: #0d0d0d;
-    font-family: Arial, sans-serif;
-  }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-  /* Iframe ocupa quase toda a tela */
-  .iframe-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: calc(100% - 70px); /* deixa espaço para a faixa de baixo */
-    z-index: 1;
-  }
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #0d0d0d;
+  font-family: Arial, sans-serif;
+}
 
-  .iframe-container iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-    display: block;
-  }
+/* IFRAME PRINCIPAL */
+.iframe-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(
+    100% - var(--footer-height) - var(--safe-bottom)
+  );
+  height: calc(
+    100dvh - var(--footer-height) - var(--safe-bottom)
+  );
+  z-index: 1;
+}
 
-  /* Faixa inferior fixa */
-  .bottom-bar {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 70px;
-    background: #111;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    padding: 8px 10px;
-    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.6);
-    z-index: 10;
-    border-top: 1px solid #222;
-  }
+.iframe-container iframe {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: none;
+}
 
+/* RODAPÉ FINO PRETO */
+.bottom-bar {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: calc(var(--footer-height) + var(--safe-bottom));
+  padding-bottom: var(--safe-bottom);
+  background: #080808;
+  border-top: 1px solid #242424;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  touch-action: pan-y;
+  user-select: none;
+}
+
+.bottom-bar .aba {
+  width: 100%;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  color: #fff;
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 0.8px;
+}
+
+.seta {
+  font-size: 17px;
+  color: #00e676;
+  transition: transform .25s;
+}
+
+.bottom-bar.aberto .seta {
+  transform: rotate(180deg);
+}
+
+/* CAMADA DE FUNDO */
+.support-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.42);
+  z-index: 80;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity .25s, visibility .25s;
+}
+
+.support-overlay.aberto {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* PAINEL EXPANSÍVEL */
+.support-panel {
+  position: fixed;
+  left: 0;
+  bottom: calc(var(--footer-height) + var(--safe-bottom));
+  width: 100%;
+  height: min(82dvh, 750px);
+  background: #111;
+  border-top: 1px solid #333;
+  border-radius: 15px 15px 0 0;
+  z-index: 90;
+  display: flex;
+  flex-direction: column;
+  transform: translateY(110%);
+  visibility: hidden;
+  transition: transform .3s ease, visibility .3s;
+  overflow: hidden;
+}
+
+.support-panel.aberto {
+  transform: translateY(0);
+  visibility: visible;
+}
+
+/* CABEÇALHO DO SUPORTE */
+.support-header {
+  background: #101010;
+  color: white;
+  padding: 9px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  border-bottom: 1px solid #292929;
+  flex-shrink: 0;
+}
+
+.support-title {
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.support-close {
+  background: #292929;
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  padding: 6px 10px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+/* BOTÕES ORIGINAIS */
+.buttons-area {
+  display: flex;
+  gap: 7px;
+  background: #111;
+  padding: 8px;
+  flex-shrink: 0;
+}
+
+.btn {
+  flex: 1;
+  min-width: 0;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-size: 11px;
+  border-radius: 7px;
+  line-height: 1.2;
+  padding: 4px;
+}
+
+.btn:active {
+  opacity: .85;
+  transform: scale(.98);
+}
+
+.btn-download {
+  background: linear-gradient(45deg,#00c853,#1db954);
+}
+
+.btn-palpites {
+  background: linear-gradient(45deg,#00e676,#00c853);
+}
+
+.btn-outras {
+  background: linear-gradient(45deg,#2196f3,#1976d2);
+}
+
+/* CONTEÚDO DO SUPORTE */
+.support-content {
+  width: 100%;
+  flex: 1;
+  min-height: 0;
+  background: white;
+}
+
+.support-content iframe {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: none;
+}
+
+.support-external {
+  background: #151515;
+  padding: 7px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.support-external a {
+  color: #00e676;
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+@media(max-width:360px) {
   .btn {
-    flex: 1;
-    max-width: 120px;
-    height: 52px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    text-decoration: none;
-    color: #fff;
-    font-weight: bold;
-    font-size: 13px;
-    border-radius: 12px;
-    transition: transform 0.2s, opacity 0.2s;
-    line-height: 1.2;
-    padding: 6px 4px;
+    font-size: 10px;
   }
 
-  .btn:active {
-    transform: scale(0.96);
-    opacity: 0.9;
+  .support-panel {
+    height: 88dvh;
   }
+}
 
-  /* Botão Download */
-  .btn-download {
-    background: linear-gradient(45deg, #00c853, #1db954);
+@media(prefers-reduced-motion:reduce) {
+  .support-panel,
+  .support-overlay,
+  .seta {
+    transition: none;
   }
-
-  /* Botão Grupo de Palpites */
-  .btn-palpites {
-    background: linear-gradient(45deg, #00e676, #00c853);
-  }
-
-  /* Botão Outras Bancas */
-  .btn-outras {
-    background: linear-gradient(45deg, #2196f3, #1976d2);
-  }
-
-  /* Ajuste para telas muito pequenas */
-  @media (max-width: 360px) {
-    .btn {
-      font-size: 12px;
-      max-width: 105px;
-    }
-  }
+}
 </style>
 </head>
+
 <body>
 
-  <!-- Iframe full screen (sem sandbox) -->
-  <div class="iframe-container">
-    <iframe 
-      src="https://app.aguiaoficial.vip/pr/stBCno8r"
-      allowfullscreen
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
+<!-- IFRAME PRINCIPAL DA ÁGUIA -->
+<div class="iframe-container">
+  <iframe
+    src="https://app.aguiaoficial.vip/pr/stBCno8r"
+    title="Águia Oficial"
+    allowfullscreen
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="no-referrer-when-downgrade">
+  </iframe>
+</div>
+
+<!-- FUNDO ESCURO QUANDO ABRIR SUPORTE -->
+<div
+  class="support-overlay"
+  id="supportOverlay"
+  aria-hidden="true">
+</div>
+
+<!-- PAINEL DO SUPORTE -->
+<div
+  class="support-panel"
+  id="supportPanel"
+  role="dialog"
+  aria-label="Central de suporte"
+  aria-hidden="true">
+
+  <div class="support-header" id="supportHeader">
+
+    <span class="support-title">
+      💬 Central de Suporte
+    </span>
+
+    <button
+      class="support-close"
+      id="closeSupport"
+      type="button">
+      ✕ Fechar
+    </button>
+
   </div>
 
-  <!-- Faixa inferior com 3 botões -->
-  <div class="bottom-bar">
-    <a href="https://play.google.com/store/apps/details?id=aguia.oficial" 
-       class="btn btn-download" 
-       target="_blank" 
-       rel="noopener noreferrer">
+  <!-- BOTÕES ORIGINAIS -->
+  <div class="buttons-area">
+
+    <a
+      href="https://play.google.com/store/apps/details?id=aguia.oficial"
+      class="btn btn-download"
+      target="_blank"
+      rel="noopener noreferrer">
       📲 Download
     </a>
 
-    <a href="https://chat.whatsapp.com/KokcnW2aftNGVBjdELZRZK?s=cl&p=a&mlu=4&ilr=4" 
-       class="btn btn-palpites" 
-       target="_blank" 
-       rel="noopener noreferrer">
+    <a
+      href="https://chat.whatsapp.com/KokcnW2aftNGVBjdELZRZK?s=cl&p=a&mlu=4&ilr=4"
+      class="btn btn-palpites"
+      target="_blank"
+      rel="noopener noreferrer">
       💬 Grupo de<br>Palpites
     </a>
 
-    <a href="https://www.zepitaco.com" 
-       class="btn btn-outras" 
-       target="_blank" 
-       rel="noopener noreferrer">
+    <a
+      href="https://www.zepitaco.com"
+      class="btn btn-outras"
+      target="_blank"
+      rel="noopener noreferrer">
       🏦 Outras<br>Bancas
     </a>
+
   </div>
+
+  <!-- SUPORTE JA DEU CERTO -->
+  <div class="support-content">
+
+    <iframe
+      id="supportIframe"
+      title="Suporte Já Deu Certo"
+      data-src="https://app.jadeucerto.net/"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allow="clipboard-write">
+    </iframe>
+
+  </div>
+
+  <div class="support-external">
+    <a
+      href="https://app.jadeucerto.net/"
+      target="_blank"
+      rel="noopener noreferrer">
+      ↗ Abrir suporte em nova aba
+    </a>
+  </div>
+
+</div>
+
+<!-- RODAPÉ PRETO FINO -->
+<div
+  class="bottom-bar"
+  id="bottomBar"
+  role="button"
+  tabindex="0"
+  aria-expanded="false"
+  aria-controls="supportPanel">
+
+  <div class="aba">
+    <span class="seta">⌃</span>
+    <span id="footerText">
+      SUPORTE — ARRASTE PARA CIMA
+    </span>
+  </div>
+
+</div>
+
+<script>
+(function() {
+  "use strict";
+
+  const bar = document.getElementById("bottomBar");
+  const panel = document.getElementById("supportPanel");
+  const overlay = document.getElementById("supportOverlay");
+  const closeBtn = document.getElementById("closeSupport");
+  const iframe = document.getElementById("supportIframe");
+  const footerText = document.getElementById("footerText");
+  const header = document.getElementById("supportHeader");
+
+  let aberto = false;
+  let inicioY = 0;
+  let ultimoSwipe = 0;
+
+  function abrirSuporte() {
+    if (aberto) return;
+
+    aberto = true;
+
+    // Carrega o suporte apenas no primeiro acesso
+    if (!iframe.getAttribute("src")) {
+      iframe.setAttribute(
+        "src",
+        iframe.getAttribute("data-src")
+      );
+    }
+
+    panel.classList.add("aberto");
+    overlay.classList.add("aberto");
+    bar.classList.add("aberto");
+
+    panel.setAttribute("aria-hidden", "false");
+    overlay.setAttribute("aria-hidden", "false");
+    bar.setAttribute("aria-expanded", "true");
+
+    footerText.textContent = "SUPORTE — ARRASTE PARA BAIXO";
+  }
+
+  function fecharSuporte() {
+    if (!aberto) return;
+
+    aberto = false;
+
+    panel.classList.remove("aberto");
+    overlay.classList.remove("aberto");
+    bar.classList.remove("aberto");
+
+    panel.setAttribute("aria-hidden", "true");
+    overlay.setAttribute("aria-hidden", "true");
+    bar.setAttribute("aria-expanded", "false");
+
+    footerText.textContent = "SUPORTE — ARRASTE PARA CIMA";
+  }
+
+  function alternarSuporte() {
+    if (Date.now() - ultimoSwipe < 400) return;
+
+    if (aberto) {
+      fecharSuporte();
+    } else {
+      abrirSuporte();
+    }
+  }
+
+  // Clique na barra inferior
+  bar.addEventListener("click", alternarSuporte);
+
+  // Acessibilidade: teclado
+  bar.addEventListener("keydown", function(e) {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      alternarSuporte();
+    }
+  });
+
+  // Arrastar barra
+  bar.addEventListener("touchstart", function(e) {
+    inicioY = e.changedTouches[0].clientY;
+  }, { passive: true });
+
+  bar.addEventListener("touchend", function(e) {
+    const finalY = e.changedTouches[0].clientY;
+    const diferenca = finalY - inicioY;
+
+    if (Math.abs(diferenca) > 30) {
+      ultimoSwipe = Date.now();
+
+      if (diferenca < 0) {
+        abrirSuporte();
+      } else {
+        fecharSuporte();
+      }
+    }
+  }, { passive: true });
+
+  // Arrastar cabeçalho para baixo
+  header.addEventListener("touchstart", function(e) {
+    inicioY = e.changedTouches[0].clientY;
+  }, { passive: true });
+
+  header.addEventListener("touchend", function(e) {
+    const finalY = e.changedTouches[0].clientY;
+
+    if (finalY - inicioY > 45) {
+      fecharSuporte();
+    }
+  }, { passive: true });
+
+  // Fechar por botão ou fundo
+  closeBtn.addEventListener("click", fecharSuporte);
+  overlay.addEventListener("click", fecharSuporte);
+
+  // Fechar pelo Escape
+  document.addEventListener("keydown", function(e) {
+    if (e.key === "Escape" && aberto) {
+      fecharSuporte();
+      bar.focus();
+    }
+  });
+
+})();
+</script>
 
 </body>
 </html>
